@@ -10,7 +10,6 @@ const DeleteAllStudent = () => {
       size={"icon"}
       variant={"destructive"}
       onClick={async () => {
-        console.log("Hii");
         await deleteAllStudentsAction();
       }}
     >

@@ -1,4 +1,3 @@
-import AddStudentForm from "@/components/AddStudentForm";
 import DeleteAllStudent from "@/components/DeleteAllStudent";
 import StudentsTable from "@/components/StudentTable";
 import { getAllStudentsAction } from "@/server/_actions/student.action";
@@ -10,7 +9,6 @@ export default async function Home() {
     <main className="container">
       <div className="mx-auto flex w-full flex-col justify-center space-y-4 mt-10">
         <div>
-          <AddStudentForm />
           <DeleteAllStudent />
         </div>
         <StudentsTable students={students} />
