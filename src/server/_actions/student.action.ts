@@ -18,7 +18,10 @@ export const getAllStudentsAction = async (): Promise<Array<IStudent>> => {
   }
 };
 
-export async function createStudentAction(pervState: null, formData: FormData) {
+export const createStudentAction = async (
+  pervState: null,
+  formData: FormData
+) => {
   const rawData = {
     name: formData.get("name"),
     studentId: formData.get("studentId"),
@@ -59,12 +62,8 @@ export async function createStudentAction(pervState: null, formData: FormData) {
 
     const data = {
       ...validation.data,
-      techStack: ["ELNamer"],
-      skills: ["ReactJs"],
-      // techStack: validation.data.techStack
-      //   .split(",")
-      //   .map((item) => item.trim()),
-      // skills: validation.data.skills.split(",").map((item) => item.trim()),
+      skills: [validation.data.skills],
+      techStack: [validation.data.techStack],
     };
 
     await db.student.create({ data });
@@ -81,4 +80,47 @@ export async function createStudentAction(pervState: null, formData: FormData) {
       message: "حدث خطأ أثناء محاولة تسجيل الطالب",
     };
   }
-}
+};
+
+export const updateStudentAction = async ({
+  studentId,
+  email,
+  phone,
+  address,
+  faculty,
+}: IStudent): Promise<void> => {
+  try {
+    await db.student.update({
+      where: {
+        studentId,
+      },
+      data: {
+        email,
+        phone,
+        address,
+        faculty,
+      },
+    });
+
+    revalidatePath("/");
+  } catch (error: any) {
+    throw new Error(`Something went wrong ${error.message}`);
+  }
+};
+
+export const deleteStudentAction = async ({
+  studentId,
+}: {
+  studentId: string;
+}): Promise<void> => {
+  try {
+    await db.student.delete({
+      where: {
+        studentId,
+      },
+    });
+    revalidatePath("/");
+  } catch (error: any) {
+    throw new Error(`Something went wrong ${error.message}`);
+  }
+};

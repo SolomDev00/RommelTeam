@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/table";
 import { IStudent } from "@/interfaces";
 import { Badge } from "./ui/badge";
-// import TodosTableActions from "./TodosTableActions";
+import StudentTableActions from "./StudentTableActions";
 
 export default function StudentsTable({ students }: { students: IStudent[] }) {
   return (
@@ -25,19 +25,19 @@ export default function StudentsTable({ students }: { students: IStudent[] }) {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {students.map((todo) => (
-          <TableRow key={todo?.studentId}>
-            <TableCell className="font-medium">{todo?.studentId}</TableCell>
-            <TableCell>{todo.name}</TableCell>
+        {students.map((student) => (
+          <TableRow key={student?.studentId}>
+            <TableCell className="font-medium">{student?.studentId}</TableCell>
+            <TableCell>{student.name}</TableCell>
             <TableCell>
-              {todo?.phone ? (
+              {student?.phone ? (
                 <Badge>Completed</Badge>
               ) : (
                 <Badge variant={"secondary"}>Uncompleted</Badge>
               )}
             </TableCell>
             <TableCell className="flex items-center justify-end gap-2 text-right">
-              {/* <TodosTableActions todo={todo} /> */}
+              <StudentTableActions student={student} />
             </TableCell>
           </TableRow>
         ))}

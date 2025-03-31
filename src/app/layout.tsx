@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="vsc-initialized">
+      <body className="w-full vsc-initialized">
         {/* <ThemeProvider
           attribute="class"
           defaultTheme="system"
