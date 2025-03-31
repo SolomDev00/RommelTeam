@@ -6,7 +6,7 @@ import { db } from "@/lib/prisma";
 import { studentSchema } from "@/schema";
 import { revalidatePath } from "next/cache";
 
-export const getAllStudentsAction = async (): Promise<Array<IStudent>> => {
+export const getAllStudentsAction = async (): Promise<IStudent[]> => {
   try {
     return await db.student.findMany({
       orderBy: {
@@ -122,5 +122,15 @@ export const deleteStudentAction = async ({
     revalidatePath("/");
   } catch (error: any) {
     throw new Error(`Something went wrong ${error.message}`);
+  }
+};
+
+export const deleteAllStudentsAction = async (): Promise<{ count: number }> => {
+  try {
+    const result = await db.student.deleteMany({});
+    revalidatePath("/");
+    return result;
+  } catch (error) {
+    throw error;
   }
 };
