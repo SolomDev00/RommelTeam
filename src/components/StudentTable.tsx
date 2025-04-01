@@ -9,19 +9,21 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { IStudent } from "@/interfaces";
-import { Badge } from "./ui/badge";
 import StudentTableActions from "./StudentTableActions";
 
 export default function StudentsTable({ students }: { students: IStudent[] }) {
   return (
     <Table>
-      <TableCaption>A list of your recent todos.</TableCaption>
+      <TableCaption>A list of your recent students.</TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead>ID</TableHead>
-          <TableHead>Title</TableHead>
-          <TableHead>completed</TableHead>
-          <TableHead className="text-right">Actions</TableHead>
+          <TableHead>Name</TableHead>
+          <TableHead>Email</TableHead>
+          <TableHead>Phone</TableHead>
+          <TableHead>Faculty</TableHead>
+          <TableHead>Department</TableHead>
+          <TableHead className="text-left">Actions</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -29,14 +31,11 @@ export default function StudentsTable({ students }: { students: IStudent[] }) {
           <TableRow key={student?.studentId}>
             <TableCell className="font-medium">{student?.studentId}</TableCell>
             <TableCell>{student.name}</TableCell>
-            <TableCell>
-              {student?.phone ? (
-                <Badge>Completed</Badge>
-              ) : (
-                <Badge variant={"secondary"}>Uncompleted</Badge>
-              )}
-            </TableCell>
-            <TableCell className="flex items-center justify-end gap-2 text-right">
+            <TableCell>{student.email}</TableCell>
+            <TableCell>{student.phone}</TableCell>
+            <TableCell>{student.faculty}</TableCell>
+            <TableCell>{student.department}</TableCell>
+            <TableCell className="w-full flex items-center justify-start gap-2 text-left">
               <StudentTableActions student={student} />
             </TableCell>
           </TableRow>
@@ -44,10 +43,10 @@ export default function StudentsTable({ students }: { students: IStudent[] }) {
       </TableBody>
       <TableFooter>
         <TableRow>
-          <TableCell colSpan={3}>Total</TableCell>
+          <TableCell colSpan={12}>Total</TableCell>
           <TableCell className="text-right">
             {!students.length
-              ? "You don't have any todos yet!"
+              ? "You don't have any students yet!"
               : students.length}
           </TableCell>
         </TableRow>

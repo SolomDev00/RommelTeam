@@ -8,7 +8,7 @@ export default async function Home() {
   return (
     <main className="container">
       <div className="mx-auto flex w-full flex-col justify-center space-y-4 mt-10">
-        <div>
+        <div className="hidden">
           <DeleteAllStudent />
         </div>
         <StudentsTable students={students} />

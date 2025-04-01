@@ -282,7 +282,7 @@ const AddStudentForm = () => {
                       >
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Select Academic Years" />
+                            <SelectValue placeholder="Select Academic Year" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
