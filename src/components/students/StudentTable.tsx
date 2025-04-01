@@ -23,6 +23,7 @@ export default function StudentsTable({ students }: { students: IStudent[] }) {
           <TableHead>Phone</TableHead>
           <TableHead>Faculty</TableHead>
           <TableHead>Department</TableHead>
+          <TableHead>Academic Year</TableHead>
           <TableHead className="text-left">Actions</TableHead>
         </TableRow>
       </TableHeader>
@@ -35,6 +36,7 @@ export default function StudentsTable({ students }: { students: IStudent[] }) {
             <TableCell>{student.phone}</TableCell>
             <TableCell>{student.faculty}</TableCell>
             <TableCell>{student.department}</TableCell>
+            <TableCell>{student.academicYear}</TableCell>
             <TableCell className="w-full flex items-center justify-start gap-2 text-left">
               <StudentTableActions student={student} />
             </TableCell>

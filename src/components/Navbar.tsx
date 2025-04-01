@@ -1,5 +1,5 @@
 import { ModeToggle } from "@/components/ModeToggle";
-import AddStudentForm from "./AddStudentForm";
+import AddStudentForm from "./students/AddStudentForm";
 import Logo from "@/../public/images/logo.png";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,6 +13,7 @@ const Navbar = () => {
           alt="RommelTeam"
           width={90}
           height={90}
+          priority
           className="cursor-pointer hover:scale-105 duration-150 transition-all"
         />
       </Link>

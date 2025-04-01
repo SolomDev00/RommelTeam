@@ -1,5 +1,5 @@
-import DeleteAllStudent from "@/components/DeleteAllStudent";
-import StudentsTable from "@/components/StudentTable";
+import DeleteAllStudent from "@/components/students/DeleteAllStudent";
+import StudentsTable from "@/components/students/StudentTable";
 import { getAllStudentsAction } from "@/server/_actions/student.action";
 
 export default async function Home() {

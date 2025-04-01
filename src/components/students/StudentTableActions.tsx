@@ -1,23 +1,24 @@
 "use client";
 
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { Trash } from "lucide-react";
 import { deleteStudentAction } from "@/server/_actions/student.action";
-import Spinner from "./Spinner";
+import Spinner from "../Spinner";
 import { useState } from "react";
 import EditStudentForm from "./EditStudentForm";
 import { IStudent } from "@/interfaces";
+import ViewStudent from "./ViewStudent";
 
-const TodosTableActions = ({ student }: { student: IStudent }) => {
+const StudentsTableActions = ({ student }: { student: IStudent }) => {
   const [loading, setLoading] = useState(false);
   return (
     <>
+      <ViewStudent student={student} />
       <EditStudentForm student={student} />
       <Button
         size={"icon"}
         variant={"destructive"}
         onClick={async () => {
-          console.log(student);
           setLoading(true);
           await deleteStudentAction({ studentId: student.studentId });
           setLoading(false);
@@ -29,4 +30,4 @@ const TodosTableActions = ({ student }: { student: IStudent }) => {
   );
 };
 
-export default TodosTableActions;
+export default StudentsTableActions;

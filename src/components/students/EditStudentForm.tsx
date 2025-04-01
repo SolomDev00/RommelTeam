@@ -24,7 +24,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { studentSchema } from "@/schema";
 import { updateStudentAction } from "@/server/_actions/student.action";
-import Spinner from "./Spinner";
+import Spinner from "../Spinner";
 import { useState } from "react";
 import { Pen } from "lucide-react";
 import { IStudent } from "@/interfaces";

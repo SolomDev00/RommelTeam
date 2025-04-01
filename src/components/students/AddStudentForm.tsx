@@ -24,7 +24,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { studentSchema } from "@/schema";
 import { createStudentAction } from "@/server/_actions/student.action";
-import Spinner from "./Spinner";
+import Spinner from "../Spinner";
 import { useState } from "react";
 import { Rocket } from "lucide-react";
 import { TStudentForm } from "@/types";
@@ -36,7 +36,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import toast from "react-hot-toast";
-import { ProgressBar } from "./ui/progress-bar";
+import { ProgressBar } from "../ui/progress-bar";
 
 const faculties = [
   "Faculty of AI and Information",
@@ -371,7 +371,7 @@ const AddStudentForm = () => {
             <div className="flex justify-between mt-6">
               {currentStep > 0 ? (
                 <Button type="button" variant="outline" onClick={prevStep}>
-                  السابق
+                  Before
                 </Button>
               ) : (
                 <div></div>
