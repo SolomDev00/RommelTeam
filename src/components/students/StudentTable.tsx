@@ -37,7 +37,7 @@ export default function StudentsTable({ students }: { students: IStudent[] }) {
             <TableCell>{student.faculty}</TableCell>
             <TableCell>{student.department}</TableCell>
             <TableCell>{student.academicYear}</TableCell>
-            <TableCell className="w-full flex items-center justify-start gap-2 text-left">
+            <TableCell className="w-full flex items-center justify-end gap-2 text-right py-4 px-0">
               <StudentTableActions student={student} />
             </TableCell>
           </TableRow>

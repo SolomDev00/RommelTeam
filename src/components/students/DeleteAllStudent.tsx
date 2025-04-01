@@ -1,7 +1,7 @@
 "use client";
 
 import { Trash } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { deleteAllStudentsAction } from "@/server/_actions/student.action";
 
 const DeleteAllStudent = () => {

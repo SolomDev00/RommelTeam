@@ -1,18 +1,9 @@
-import DeleteAllStudent from "@/components/students/DeleteAllStudent";
-import StudentsTable from "@/components/students/StudentTable";
-import { getAllStudentsAction } from "@/server/_actions/student.action";
+import LandingSection from "./_components/LandingSection";
 
-export default async function Home() {
-  const students = await getAllStudentsAction();
-
+export default function Home() {
   return (
-    <main className="container">
-      <div className="mx-auto flex w-full flex-col justify-center space-y-4 mt-10">
-        <div className="hidden">
-          <DeleteAllStudent />
-        </div>
-        <StudentsTable students={students} />
-      </div>
+    <main className="min-h-screen">
+      <LandingSection />
     </main>
   );
 }

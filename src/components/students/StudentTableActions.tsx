@@ -8,12 +8,15 @@ import { useState } from "react";
 import EditStudentForm from "./EditStudentForm";
 import { IStudent } from "@/interfaces";
 import ViewStudent from "./ViewStudent";
+import toast from "react-hot-toast";
 
 const StudentsTableActions = ({ student }: { student: IStudent }) => {
   const [loading, setLoading] = useState(false);
   return (
     <>
-      <ViewStudent student={student} />
+      <div className="hidden">
+        <ViewStudent student={student} />
+      </div>
       <EditStudentForm student={student} />
       <Button
         size={"icon"}
@@ -21,6 +24,7 @@ const StudentsTableActions = ({ student }: { student: IStudent }) => {
         onClick={async () => {
           setLoading(true);
           await deleteStudentAction({ studentId: student.studentId });
+          toast.success("Student is Deleted!");
           setLoading(false);
         }}
       >

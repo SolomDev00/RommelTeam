@@ -17,7 +17,7 @@ const Navbar = () => {
           className="cursor-pointer hover:scale-105 duration-150 transition-all"
         />
       </Link>
-      <div className="flex items-center gap-3 ">
+      <div className="flex items-center gap-3">
         <ModeToggle />
         <AddStudentForm />
       </div>

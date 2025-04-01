@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
       allowedOrigins: ["http://localhost:3000/"],
     },
   },
+  images: {
+    domains: ["horus-university.com", "microsoft.com"],
+  },
 };
 
 export default nextConfig;
