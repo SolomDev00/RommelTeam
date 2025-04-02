@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { LoginFormData } from "@/types";
 import { loginSchema } from "@/schema";
+import { buttonVariants, formVariants } from "@/utils/variants";
 
 const LoginPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -21,25 +22,12 @@ const LoginPage = () => {
   const onSubmit = async (data: LoginFormData) => {
     setIsSubmitting(true);
     try {
-      console.log("بيانات تسجيل الدخول:", data);
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      alert("تم تسجيل الدخول بنجاح!");
+      console.log(data);
     } catch (error) {
-      console.error("خطأ في تسجيل الدخول:", error);
-      alert("فشل تسجيل الدخول، حاول مرة أخرى.");
+      console.error("Error", error);
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const formVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
-  };
-
-  const buttonVariants = {
-    hover: { scale: 1.05, boxShadow: "0 0 15px rgba(59, 130, 246, 0.5)" },
-    tap: { scale: 0.95 },
   };
 
   return (

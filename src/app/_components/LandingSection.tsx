@@ -3,71 +3,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ChartArea, Play, Users2 } from "lucide-react";
-
-const circleVariants = {
-  hidden: {
-    x: "-100vw",
-    opacity: 0,
-  },
-  visible: {
-    x: 0,
-    opacity: 0.5,
-    transition: {
-      duration: 2,
-      ease: "easeOut",
-    },
-  },
-  animate: {
-    scale: [1, 1.1, 1],
-    opacity: [0.5, 0.7, 0.5],
-    transition: {
-      duration: 5,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  },
-};
-
-const circleVariantsRight = {
-  hidden: {
-    x: "100vw",
-    opacity: 0,
-  },
-  visible: {
-    x: 0,
-    opacity: 0.5,
-    transition: {
-      duration: 2,
-      ease: "easeOut",
-    },
-  },
-  animate: {
-    scale: [1, 1.1, 1],
-    opacity: [0.5, 0.7, 0.5],
-    transition: {
-      duration: 5,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  },
-};
-
-const textVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 1, ease: "easeOut" },
-  },
-};
-
-const buttonVariants = {
-  hover: {
-    scale: 1.05,
-    boxShadow: "0 0 15px rgba(59, 130, 246, 0.5)",
-    transition: { duration: 0.3 },
-  },
-};
+import {
+  buttonVariants,
+  circleVariants,
+  circleVariantsRight,
+  textVariants,
+} from "@/utils/variants";
 
 const LandingPage: React.FC = () => {
   return (
