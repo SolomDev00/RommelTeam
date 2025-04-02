@@ -91,7 +91,7 @@ const LandingPage: React.FC = () => {
           initial="hidden"
           animate="visible"
         >
-          The Most Reliable Way to <br />
+          Most Successful Continuity <br />
           <span className="text-blue-400">
             [ <span className="text-white">Rommel Team</span> ]
           </span>

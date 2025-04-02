@@ -18,3 +18,11 @@ export const skillsSchema = z.object({
 });
 
 export const studentSchema = basicInfoSchema.merge(skillsSchema);
+
+export const loginSchema = z.object({
+  email: z.string().min(1, "Email is required").email("Invalid email"),
+  password: z
+    .string()
+    .min(6, "Password must be at least 6 characters")
+    .max(20, "Password must not exceed 20 characters"),
+});
