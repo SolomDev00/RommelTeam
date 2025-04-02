@@ -18,8 +18,8 @@ export const ProgressBar = ({
               className={cn(
                 "w-8 h-8 rounded-full flex items-center justify-center",
                 currentStep >= index
-                  ? "bg-primary text-white"
-                  : "bg-gray-200 text-gray-600"
+                  ? "bg-indigo-500 text-white"
+                  : "bg-gray-300 text-black/90"
               )}
             >
               {index + 1}
@@ -27,16 +27,16 @@ export const ProgressBar = ({
             <span
               className={cn(
                 "mt-2 text-sm",
-                currentStep >= index ? "text-primary" : "text-gray-500"
+                currentStep >= index ? "text-indigo-500" : "text-gray-500"
               )}
             >
               {step}
             </span>
           </div>
         ))}
-        <div className="absolute top-4 left-0 right-0 h-1 bg-gray-200 -z-10">
+        <div className="absolute top-4 left-0 right-0 h-1 bg-gray-300 -z-10 rounded-2xl">
           <div
-            className="h-full bg-primary transition-all duration-300"
+            className="h-full bg-indigo-500 transition-all duration-300"
             style={{
               width: `${(currentStep / (steps.length - 1)) * 100}%`,
             }}

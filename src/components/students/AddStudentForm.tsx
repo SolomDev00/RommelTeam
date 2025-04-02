@@ -37,6 +37,9 @@ import {
 } from "@/components/ui/select";
 import toast from "react-hot-toast";
 import { ProgressBar } from "../ui/progress-bar";
+import Logo from "@/../public/images/logo.png";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 const faculties = [
   "Faculty of AI and Information",
@@ -68,6 +71,34 @@ const academicYears = [
 ];
 
 const steps = ["Personal Details", "Skills and Technologies"];
+
+const rocketVariants = {
+  idle: {
+    y: [0, -5, 0],
+    transition: {
+      y: {
+        repeat: Infinity,
+        duration: 1.5,
+        ease: "easeInOut",
+      },
+    },
+  },
+  hover: {
+    y: [-10, 10],
+    rotate: [0, 5, -5, 0],
+    transition: {
+      y: {
+        repeat: Infinity,
+        duration: 0.8,
+        ease: "easeInOut",
+      },
+      rotate: {
+        repeat: Infinity,
+        duration: 0.5,
+      },
+    },
+  },
+};
 
 const AddStudentForm = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -147,14 +178,22 @@ const AddStudentForm = () => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="gap-2">
+        <Button className="gap-2 bg-blue-600/50 border border-blue-500/50 text-blue-300 font-semibold py-3 px-6 rounded-3xl hover:bg-blue-600/40 hover:text-blue-200 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
           Join Now!
-          <Rocket size={18} />
+          <motion.div
+            className="relative flex items-center"
+            variants={rocketVariants}
+          >
+            <Rocket size={18} className="text-blue-400" />
+          </motion.div>
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[600px]">
         <DialogHeader>
-          <DialogTitle>Submit on RommelTeam</DialogTitle>
+          <div className="flex items-center">
+            <Image width={60} src={Logo} alt="Logo" />
+            <DialogTitle>Submit on RommelTeam</DialogTitle>
+          </div>
           <DialogDescription>
             Please enter the new student&apos;s information in the form below{" "}
           </DialogDescription>
@@ -368,20 +407,25 @@ const AddStudentForm = () => {
                 />
               </>
             )}
-            <div className="flex justify-between mt-6">
+            <div className="flex justify-between gap-3 mt-6">
               {currentStep > 0 ? (
-                <Button type="button" variant="outline" onClick={prevStep}>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={prevStep}
+                  className="w-full"
+                >
                   Before
                 </Button>
               ) : (
                 <div></div>
               )}
               {currentStep < steps.length - 1 ? (
-                <Button type="button" onClick={nextStep}>
+                <Button type="button" onClick={nextStep} className="w-full">
                   Next
                 </Button>
               ) : (
-                <Button type="submit" disabled={loading}>
+                <Button type="submit" disabled={loading} className="w-full">
                   {loading ? (
                     <>
                       <Spinner /> Saving

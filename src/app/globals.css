@@ -133,3 +133,50 @@
 body {
   font-family: "Nunito", sans-serif;
 }
+
+.space-background {
+  background: radial-gradient(
+    circle at center,
+    #0a0a23 0%,
+    #1e1e4a 50%,
+    #2a2a72 100%
+  );
+  position: relative;
+}
+
+.space-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cdefs%3E%3Cstyle%3E.star%7Bfill:%23ffffff;opacity:0.7%7D.star:nth-child(2n)%7Bopacity:0.5%7D.star:nth-child(3n)%7Bopacity:0.3%7D%3C/style%3E%3C/defs%3E%3Ccircle class='star' cx='10' cy='10' r='1'/%3E%3Ccircle class='star' cx='50' cy='30' r='0.8'/%3E%3Ccircle class='star' cx='80' cy='20' r='1.2'/%3E%3Ccircle class='star' cx='120' cy='50' r='0.9'/%3E%3Ccircle class='star' cx='150' cy='80' r='1'/%3E%3Ccircle class='star' cx='200' cy='40' r='0.7'/%3E%3Ccircle class='star' cx='250' cy='60' r='1.1'/%3E%3Ccircle class='star' cx='300' cy='20' r='0.8'/%3E%3Ccircle class='star' cx='350' cy='70' r='1'/%3E%3Ccircle class='star' cx='400' cy='30' r='0.9'/%3E%3Ccircle class='star' cx='450' cy='50' r='1.2'/%3E%3Ccircle class='star' cx='500' cy='80' r='0.7'/%3E%3Ccircle class='star' cx='550' cy='40' r='1'/%3E%3Ccircle class='star' cx='600' cy='60' r='0.8'/%3E%3Ccircle class='star' cx='650' cy='20' r='1.1'/%3E%3Ccircle class='star' cx='700' cy='70' r='0.9'/%3E%3Ccircle class='star' cx='750' cy='30' r='1'/%3E%3Ccircle class='star' cx='800' cy='50' r='0.8'/%3E%3Ccircle class='star' cx='850' cy='80' r='1.2'/%3E%3Ccircle class='star' cx='900' cy='40' r='0.7'/%3E%3Ccircle class='star' cx='950' cy='60' r='1'/%3E%3C/svg%3E");
+  background-size: 1000px 1000px;
+  animation: twinkle 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes twinkle {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1000px 1000px;
+  }
+}
+
+.space-background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 30% 70%,
+    rgba(59, 130, 246, 0.1) 0%,
+    transparent 50%
+  );
+  opacity: 0.5;
+}

@@ -16,10 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" style={{ colorScheme: "dark" }} className={`dark`}>
-      <body className="w-full vsc-initialized">
+      <body className="w-full space-background vsc-initialized">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
