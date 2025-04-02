@@ -3,30 +3,27 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { LoginFormData } from "@/types";
 import { loginSchema } from "@/schema";
-import { buttonVariants, formVariants } from "@/utils/variants";
+import { formVariants } from "@/utils/variants";
+import Spinner from "@/components/Spinner";
+import { loginAuthAction } from "@/server/_actions/auth.action";
 
 const LoginPage = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isLoading },
   } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
   });
 
   const onSubmit = async (data: LoginFormData) => {
-    setIsSubmitting(true);
     try {
-      console.log(data);
+      loginAuthAction(data);
     } catch (error) {
       console.error("Error", error);
     } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -83,20 +80,17 @@ const LoginPage = () => {
               </p>
             )}
           </div>
-          <motion.button
+          <button
             type="submit"
-            disabled={isSubmitting}
-            className={`w-full py-3 rounded-lg font-semibold text-white transition-all duration-300 ${
-              isSubmitting
+            disabled={isLoading}
+            className={`w-full py-3 rounded-lg font-semibold text-white transition-all duration-300 cursor-pointer ${
+              isLoading
                 ? "bg-blue-400 cursor-not-allowed"
                 : "bg-blue-500 hover:bg-blue-600"
             }`}
-            variants={buttonVariants}
-            whileHover="hover"
-            whileTap="tap"
           >
-            {isSubmitting ? "Loading ..." : "Login"}
-          </motion.button>
+            {isLoading ? <Spinner /> : "Login"}
+          </button>
         </form>
         <p className="mt-3 text-left text-gray-300">
           Don&apos;t Have Account ?{" "}
