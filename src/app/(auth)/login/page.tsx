@@ -96,7 +96,7 @@ const LoginPage = () => {
             {isLoading ? <Spinner /> : "Login"}
           </button>
         </form>
-        <p className="mt-3 text-left text-gray-300">
+        <p className="mt-3 text-left text-gray-300 text-sm">
           Don&apos;t Have Account ?{" "}
           <a href="/register" className="text-blue-400 hover:underline">
             Create new Account

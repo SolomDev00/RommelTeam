@@ -28,13 +28,13 @@ import Spinner from "../Spinner";
 import { useState } from "react";
 import { Pen } from "lucide-react";
 import { IStudent } from "@/interfaces";
-import { TStudentForm } from "@/types";
+import { StudentFormData } from "@/types";
 
 const EditTodoForm = ({ student }: { student: IStudent }) => {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const defaultValues: Partial<TStudentForm> = {
+  const defaultValues: Partial<StudentFormData> = {
     studentId: student.studentId,
     name: student.name,
     email: student.email,
@@ -46,13 +46,13 @@ const EditTodoForm = ({ student }: { student: IStudent }) => {
     field: student.field,
   };
 
-  const form = useForm<TStudentForm>({
+  const form = useForm<StudentFormData>({
     resolver: zodResolver(studentSchema),
     defaultValues,
     mode: "onChange",
   });
 
-  const onSubmit = async (data: TStudentForm) => {
+  const onSubmit = async (data: StudentFormData) => {
     setLoading(true);
     await updateStudentAction({
       studentId: data.studentId,

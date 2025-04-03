@@ -2,14 +2,25 @@ import { ILoginInput, IRegisterInput } from "@/interfaces/forms";
 
 export const REGISTER_FORM: IRegisterInput[] = [
   {
-    id: "username",
+    id: "name",
     name: "name",
-    placeholder: "Type your Sender Name ..",
+    placeholder: "Type your Full Name ..",
     type: "text",
-    label: "Sender Name :",
+    label: "Full Name",
     validation: {
       required: true,
       minLength: 3,
+    },
+  },
+  {
+    id: "studentId",
+    name: "studentId",
+    placeholder: "Type your Student ID ..",
+    type: "number",
+    label: "Student ID",
+    validation: {
+      required: true,
+      minLength: 5,
     },
   },
   {
@@ -17,25 +28,25 @@ export const REGISTER_FORM: IRegisterInput[] = [
     name: "email",
     placeholder: "Type your Email ..",
     type: "email",
-    label: "Email :",
+    label: "Email",
     validation: {
       required: true,
       pattern: /^[^@]+@[^@]+\.[^@ .]{2,}$/,
     },
   },
   {
-    id: "name",
+    id: "phone",
     name: "phone",
     placeholder: "Type your Phone number ..",
     type: "text",
-    label: "Phone :",
+    label: "Phone Number",
   },
   {
     id: "password",
     name: "password",
     placeholder: "Type your Password ..",
     type: "password",
-    label: "Password :",
+    label: "Password",
     validation: {
       required: true,
       minLength: 6,
@@ -46,7 +57,7 @@ export const REGISTER_FORM: IRegisterInput[] = [
     name: "confirmPassword",
     placeholder: "Type your password Confirmation ..",
     type: "password",
-    label: "Password Confirmation :",
+    label: "Password Confirmation",
     validation: {
       required: true,
       minLength: 6,

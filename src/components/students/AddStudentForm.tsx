@@ -27,7 +27,7 @@ import { createStudentAction } from "@/server/_actions/student.action";
 import Spinner from "../Spinner";
 import { useState } from "react";
 import { Rocket } from "lucide-react";
-import { TStudentForm } from "@/types";
+import { StudentFormData } from "@/types";
 import {
   Select,
   SelectContent,
@@ -105,7 +105,7 @@ const AddStudentForm = () => {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const defaultValues: Partial<TStudentForm> = {
+  const defaultValues: Partial<StudentFormData> = {
     name: "",
     studentId: "",
     address: "",
@@ -119,13 +119,13 @@ const AddStudentForm = () => {
     skills: "",
   };
 
-  const form = useForm<TStudentForm>({
+  const form = useForm<StudentFormData>({
     resolver: zodResolver(studentSchema),
     defaultValues,
     mode: "onChange",
   });
 
-  const onSubmit = async (data: TStudentForm) => {
+  const onSubmit = async (data: StudentFormData) => {
     setLoading(true);
 
     try {

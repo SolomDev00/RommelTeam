@@ -1,6 +1,12 @@
 export interface IRegisterInput {
   id: string;
-  name: "name" | "email" | "phone" | "password" | "confirmPassword";
+  name:
+    | "name"
+    | "studentId"
+    | "email"
+    | "phone"
+    | "password"
+    | "confirmPassword";
   placeholder: string;
   type: string;
   label: string;

@@ -12,12 +12,12 @@ import {
 import { useState } from "react";
 import { Eye } from "lucide-react";
 import { IStudent } from "@/interfaces";
-import { TStudentForm } from "@/types";
+import { StudentFormData } from "@/types";
 
 const ViewStudent = ({ student }: { student: IStudent }) => {
   const [open, setOpen] = useState(false);
 
-  const defaultValues: Partial<TStudentForm> = {
+  const defaultValues: Partial<StudentFormData> = {
     studentId: student.studentId,
     name: student.name,
     email: student.email,
