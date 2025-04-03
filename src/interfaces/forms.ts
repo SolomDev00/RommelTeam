@@ -1,0 +1,25 @@
+export interface IRegisterInput {
+  id: string;
+  name: "name" | "email" | "phone" | "password" | "confirmPassword";
+  placeholder: string;
+  type: string;
+  label: string;
+  validation?: {
+    pattern?: RegExp;
+    required?: boolean;
+    minLength?: number;
+  };
+}
+
+export interface ILoginInput {
+  id: string;
+  name: "email" | "password";
+  placeholder: string;
+  type: string;
+  label: string;
+  validation: {
+    pattern?: RegExp;
+    required?: boolean;
+    minLength?: number;
+  };
+}

@@ -42,7 +42,7 @@ const RegisterPage = () => {
         animate="visible"
       >
         <h2 className="text-3xl font-bold text-white text-center mb-6">
-          Login Form
+          Register Form
         </h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div>
