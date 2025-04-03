@@ -3,25 +3,26 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
-import { LoginFormData } from "@/types";
-import { loginSchema } from "@/schema";
+import { RegisterFormData } from "@/types";
+import { registerSchema } from "@/schema";
 import { formVariants } from "@/utils/variants";
 import Spinner from "@/components/Spinner";
-import { loginAuthAction } from "@/server/_actions/auth.action";
+import { registerAuthAction } from "@/server/_actions/auth.action";
 import toast from "react-hot-toast";
+import { Input } from "@/components/ui/input";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, isLoading },
-  } = useForm<LoginFormData>({
-    resolver: zodResolver(loginSchema),
+  } = useForm<RegisterFormData>({
+    resolver: zodResolver(registerSchema),
   });
 
-  const onSubmit = async (data: LoginFormData) => {
+  const onSubmit = async (data: RegisterFormData) => {
     try {
-      loginAuthAction(data).then((res) => {
+      registerAuthAction(data).then((res) => {
         if (res?.error) toast.error(res.error);
         if (res?.sucess) toast.success(res.sucess);
       });
@@ -71,7 +72,7 @@ const LoginPage = () => {
             >
               Password
             </label>
-            <input
+            <Input
               id="password"
               type="password"
               {...register("password")}
@@ -107,4 +108,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
