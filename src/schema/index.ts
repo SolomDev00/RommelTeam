@@ -33,6 +33,11 @@ export const registerSchema = z
     phone: z.string().min(11, "Phone number must be 11 digits"),
     studentId: z.string().min(5, "Student ID must be at least 5 characters"),
     email: z.string().min(1, "Email is required").email("Invalid email"),
+    address: z.string().min(5, "Address must be at least 5 characters"),
+    faculty: z.string().min(1, "Please select a faculty"),
+    department: z.string().min(1, "Please select a department"),
+    field: z.string().min(1, "Please specify your field of specialization"),
+    academicYear: z.string().min(1, "Please select academic year"),
     password: z
       .string()
       .min(6, "Password must be at least 6 characters")
