@@ -17,6 +17,7 @@ const RegisterPage = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isLoading },
   } = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema),
@@ -25,8 +26,11 @@ const RegisterPage = () => {
   const onSubmit = async (data: RegisterFormData) => {
     try {
       registerAuthAction(data).then((res) => {
-        if (res?.error) toast.error(res.error);
-        if (res?.sucess) toast.success(res.sucess);
+        if (!res?.success) toast.error(res.message);
+        if (res?.success) {
+          toast.success(res.message);
+          reset();
+        }
       });
     } catch (error) {
       console.error("Error", error);

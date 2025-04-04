@@ -41,9 +41,13 @@ export const registerAuthAction = async (data: RegisterFormData) => {
     address,
   } = validation.data;
 
-  const user = await db.user.findUnique({ where: { studentId } });
+  const userId = await db.user.findUnique({ where: { studentId } });
+  const userEmail = await db.user.findUnique({ where: { email } });
 
-  if (user) return { success: false, message: "User is exist." };
+  if (userId)
+    return { success: false, message: "Student ID already registered!" };
+  if (userEmail)
+    return { success: false, message: "Email already registered!" };
 
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);

@@ -5,6 +5,11 @@ export interface IRegisterInput {
     | "studentId"
     | "email"
     | "phone"
+    | "academicYear"
+    | "field"
+    | "department"
+    | "address"
+    | "faculty"
     | "password"
     | "confirmPassword";
   placeholder: string;

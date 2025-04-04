@@ -35,11 +35,70 @@ export const REGISTER_FORM: IRegisterInput[] = [
     },
   },
   {
+    id: "address",
+    name: "address",
+    placeholder: "Type your Address ..",
+    type: "text",
+    label: "Address",
+    validation: {
+      required: true,
+      minLength: 3,
+    },
+  },
+  {
+    id: "faculty",
+    name: "faculty",
+    placeholder: "Type your Faculty ..",
+    type: "text",
+    label: "Faculty",
+    validation: {
+      required: true,
+      minLength: 3,
+    },
+  },
+  {
+    id: "department",
+    name: "department",
+    placeholder: "Type your Department ..",
+    type: "text",
+    label: "Department",
+    validation: {
+      required: true,
+      minLength: 3,
+    },
+  },
+  {
+    id: "field",
+    name: "field",
+    placeholder: "Type your Field ..",
+    type: "text",
+    label: "Field",
+    validation: {
+      required: true,
+      minLength: 3,
+    },
+  },
+  {
+    id: "academicYear",
+    name: "academicYear",
+    placeholder: "Type your Academic Year ..",
+    type: "text",
+    label: "Academic Year",
+    validation: {
+      required: true,
+      minLength: 3,
+    },
+  },
+  {
     id: "phone",
     name: "phone",
     placeholder: "Type your Phone number ..",
-    type: "text",
+    type: "number",
     label: "Phone Number",
+    validation: {
+      required: true,
+      minLength: 11,
+    },
   },
   {
     id: "password",
