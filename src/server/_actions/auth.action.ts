@@ -4,6 +4,8 @@ import { db } from "@/lib/prisma";
 import { loginSchema, registerSchema } from "@/schema";
 import { LoginFormData, RegisterFormData } from "@/types";
 import * as bcrypt from "bcryptjs";
+import { signIn } from "../auth";
+import { AuthError } from "next-auth";
 
 export const loginAuthAction = async (data: LoginFormData) => {
   const validation = loginSchema.safeParse(data);
@@ -12,10 +14,25 @@ export const loginAuthAction = async (data: LoginFormData) => {
       error: validation.error.message[0],
     };
   }
-  console.log(data);
+
+  const { email, password } = validation.data;
+
+  try {
+    await signIn("credentials", { email, password, redirectTo: "/profile" });
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case "CredentialsSignin":
+          return { success: false, message: "Invalid email or password!" };
+        default:
+          return { success: false, message: "Something error." };
+      }
+    }
+  }
+
   return {
-    status: 200,
-    sucess: "Logged in Successfully",
+    success: true,
+    message: "Logged in Successfully",
   };
 };
 
